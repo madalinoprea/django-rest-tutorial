@@ -1,0 +1,42 @@
+<VirtualHost *:80>
+    ServerAdmin webmaster@localhost
+    DocumentRoot /var/www
+
+	Alias /robots.txt /opt/site/static/robots.txt
+	Alias /favicon.ico /opt/site/static/favicon.ico
+
+	Alias /media/ /opt/site/static/
+
+	<Directory /opt/site/static>
+		Order deny,allow
+		Allow from all
+	</Directory>
+	
+	# This folder is served from Django to authorized users
+	<Directory /opt/site/static/builds>
+		Order deny,allow
+		Deny from all
+	</Directory>
+
+    WSGIScriptAlias / /opt/site/wsgi/app.wsgi
+    <Directory /usr/local/wsgi>
+		Order allow,deny
+		Allow from all
+	</Directory>
+	
+	Alias /admin_media/ /opt/site/externals/django/contrib/admin/media/
+
+    <Location /admin_media/>
+        Options FollowSymLinks MultiViews
+        Order allow,deny
+        Allow from all
+        SetHandler None
+    </Location>
+    
+    ErrorLog /var/log/apache2/error.log
+    LogLevel warn
+
+    CustomLog /var/log/apache2/access.log combined
+</VirtualHost>
+
+

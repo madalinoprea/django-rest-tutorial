@@ -1,0 +1,5 @@
+# sudo pip install -f requirements.txt
+django
+django-ratings
+django-piston
+xlrd

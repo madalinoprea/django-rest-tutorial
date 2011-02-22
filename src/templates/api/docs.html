@@ -1,0 +1,19 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>API Documentation</title>
+</head>
+<body>
+
+{% for doc in docs %}
+	<h2>Name: {{ doc.name }}</h2>
+  <i>URI: {{ doc.resource_uri_template }}</i>
+  <i>Model: {{ doc.model }} </i>
+  {% for method in doc.get_methods %}
+    {{ method.name }} {{ method.signature }}
+  {% endfor %}
+{% endfor %}
+
+</body>
+</html>
