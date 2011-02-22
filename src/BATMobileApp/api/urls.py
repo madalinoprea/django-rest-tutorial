@@ -56,5 +56,5 @@ urlpatterns = patterns('',
        
        url(r'^user/(?P<user>[^/]+)/$', userprofile_handler),
        url(r'^user/(?P<user>[^/]+)/register/$', register_handler),
-       url(r'^user/(?P<user>[^/]+)/validate/(?P<code>\w+)/$', validate_handler),
+       url(r'^user/(?P<user>[^/]+)/validate/(?P<code_number>\w+)/$', validate_handler),
 )

@@ -27,8 +27,8 @@ class RegisterDeviceHandler(BaseHandler):
 class ValidateCodeHandler(BaseHandler):
     allowed_methods = ('GET', )
     
-    def read(self, request, user, code):
-        return {'response': 'device %s tries to validate code %s' % (user, code)}
+    def read(self, request, user, code_number):
+        return {'response': 'device %s tries to validate code %s' % (user, code_number)}
 
 
 class VoteAppHandler(BaseHandler):
