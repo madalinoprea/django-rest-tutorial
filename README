@@ -1,0 +1,9 @@
+# Installation
+
+Make sure all the requirements are met:
+sudo pip install -f requirements.txt
+
+Start dev server:
+cd src/BATMobileApp/
+./manage.py runserver
+
